@@ -2520,7 +2520,7 @@ Rails.application.routes.draw do
   resources :products do
     resources :subscribers, only: [ :create ]
   end
-  resource :unsubscribe, only: [ :show ]
+  get "unsubscribe/:token", to: "unsubscribes#show", as: :unsubscribe
 ```
 
 The unsubscribe route is added at the top level and uses the singular `resource` in order to handle routes like `/unsubscribe?token=xyz`.
